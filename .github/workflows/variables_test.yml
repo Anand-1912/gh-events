@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "Today is ${{env.DAY_OF_WEEK!}}"
+        run: echo "Today is ${{env.DAY_OF_WEEK}}!"
         env:
           First_Name: Mona
