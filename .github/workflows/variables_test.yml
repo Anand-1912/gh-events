@@ -5,6 +5,7 @@ on:
 
 env:
   DAY_OF_WEEK: Monday
+  CONNECTION_STRING: ${{ vars.CONNECTION_STRING }}
 
 jobs:
   greeting_job:
@@ -12,5 +13,18 @@ jobs:
     steps:
       - name: "Say Hello Mona it's Monday"
         run: echo "Today is ${{env.DAY_OF_WEEK}}!"
+  dev-deployment:
+     runs-on: ubuntu-latest
+     environment: Development
+     steps:
+      - name: "This is Development environment"
+        run: echo "Today is ${{env.CONNECTION_STRING}}!"
+  uat-deployment:
+     runs-on: ubuntu-latest
+     environment: UAT
+     steps:
+      - name: "This is UAT environment"
+        run: echo "Today is ${{env.CONNECTION_STRING}}!"
+     
         env:
           First_Name: Mona
